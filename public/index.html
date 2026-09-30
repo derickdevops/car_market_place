@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DriveLux Motors</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="DriveLux Motors home">
+      <span class="brand-mark">D</span>
+      <span>DriveLux Motors</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#inventory">Inventory</a>
+      <a href="#finance">Finance</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="outline-button" id="openFavorites" type="button">Saved <span id="savedCount">0</span></button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Premium verified cars</p>
+        <h1>Find the car that fits your ambition.</h1>
+        <p class="hero-text">Browse inspected luxury, electric, and family cars with transparent pricing, live filters, and quick advisor requests.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#inventory">View inventory</a>
+          <a class="secondary-button" href="#finance">Calculate payment</a>
+        </div>
+      </div>
+      <form class="search-panel" id="quickSearch">
+        <label for="heroSearch">Search model or city</label>
+        <input id="heroSearch" name="search" type="search" placeholder="BMW, Tesla, Douala">
+        <div class="search-row">
+          <select name="body" aria-label="Body type">
+            <option value="all">All body styles</option>
+            <option value="SUV">SUV</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Coupe">Coupe</option>
+          </select>
+          <select name="fuel" aria-label="Fuel type">
+            <option value="all">All fuel types</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+          </select>
+        </div>
+        <button class="primary-button full" type="submit">Search cars</button>
+      </form>
+    </section>
+
+    <section class="stats-band" aria-label="Marketplace statistics">
+      <article>
+        <strong id="totalCars">0</strong>
+        <span>cars available</span>
+      </article>
+      <article>
+        <strong id="averagePrice">$0</strong>
+        <span>average price</span>
+      </article>
+      <article>
+        <strong id="locations">0</strong>
+        <span>cities covered</span>
+      </article>
+      <article>
+        <strong>48h</strong>
+        <span>delivery review</span>
+      </article>
+    </section>
+
+    <section class="inventory-section" id="inventory">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Live inventory</p>
+          <h2>Featured cars ready for inspection</h2>
+        </div>
+        <p id="resultCount">Loading cars...</p>
+      </div>
+
+      <form class="filters" id="filters">
+        <input name="search" type="search" placeholder="Search cars">
+        <select name="body">
+          <option value="all">All body styles</option>
+          <option value="SUV">SUV</option>
+          <option value="Sedan">Sedan</option>
+          <option value="Coupe">Coupe</option>
+        </select>
+        <select name="fuel">
+          <option value="all">All fuel types</option>
+          <option value="Electric">Electric</option>
+          <option value="Hybrid">Hybrid</option>
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel">Diesel</option>
+        </select>
+        <label class="range-label">
+          Max price <span id="maxPriceLabel">$70,000</span>
+          <input name="maxPrice" id="maxPrice" type="range" min="30000" max="70000" step="1000" value="70000">
+        </label>
+      </form>
+
+      <div class="car-grid" id="carGrid"></div>
+    </section>
+
+    <section class="finance-section" id="finance">
+      <div class="finance-copy">
+        <p class="eyebrow">Finance preview</p>
+        <h2>Estimate your monthly payment before you call.</h2>
+        <p>Adjust the price, down payment, interest rate, and term. This is a demo calculator for teaching frontend state and user interaction.</p>
+      </div>
+      <form class="calculator" id="calculator">
+        <label>Vehicle price
+          <input name="price" type="number" value="43500" min="10000">
+        </label>
+        <label>Down payment
+          <input name="down" type="number" value="7000" min="0">
+        </label>
+        <label>Interest rate %
+          <input name="rate" type="number" value="6.5" min="0" step="0.1">
+        </label>
+        <label>Term months
+          <input name="months" type="number" value="48" min="12" step="12">
+        </label>
+        <output id="monthlyPayment">$0 / month</output>
+      </form>
+    </section>
+  </main>
+
+  <aside class="lead-drawer" id="leadDrawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <button class="icon-button" id="closeDrawer" type="button" aria-label="Close request form">x</button>
+      <p class="eyebrow">Request details</p>
+      <h2 id="drawerTitle">Talk to an advisor</h2>
+      <form id="leadForm">
+        <input type="hidden" name="carId" id="leadCarId">
+        <label>Your name
+          <input name="name" required placeholder="Full name">
+        </label>
+        <label>Phone number
+          <input name="phone" required placeholder="+237 ...">
+        </label>
+        <label>Message
+          <textarea name="message" rows="4" placeholder="I want to inspect this car."></textarea>
+        </label>
+        <button class="primary-button full" type="submit">Send request</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </aside>
+
+  <footer class="footer" id="contact">
+    <div>
+      <strong>DriveLux Motors</strong>
+      <p>Premium marketplace demo built for Docker Compose deployment.</p>
+    </div>
+    <a href="mailto:sales@drivelux.example">sales@drivelux.example</a>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
