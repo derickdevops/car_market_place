@@ -1,0 +1,10 @@
+{
+  "name": "drivelux-car-marketplace",
+  "version": "1.0.0",
+  "description": "Dynamic car sales website deployed with Docker Compose.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
